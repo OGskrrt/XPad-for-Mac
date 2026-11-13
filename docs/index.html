@@ -3,37 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>XPad for Mac – Use an Xbox 360 controller on Mac (free)</title>
-<meta name="description" content="XPad is a free macOS menu bar app that makes Xbox 360-style XInput controllers and receivers (like the 8BitDo Ultimate C 2.4G) work on Mac. No driver, no kext, no SIP changes. Apple Silicon and Intel.">
+<title>XPad for Mac – Use an Xbox 360 controller in Chrome on Mac (free)</title>
+<meta name="description" content="XPad is a free Chrome extension that makes Xbox 360-style XInput controllers and receivers (like the 8BitDo Ultimate C 2.4G) work as a real analog gamepad in browser games on Mac. No driver, no kext.">
 <link rel="canonical" href="https://ogskrrt.github.io/XPad-for-Mac/">
 <link rel="alternate" hreflang="en" href="https://ogskrrt.github.io/XPad-for-Mac/">
 <link rel="alternate" hreflang="tr" href="https://ogskrrt.github.io/XPad-for-Mac/tr/">
 <link rel="alternate" hreflang="x-default" href="https://ogskrrt.github.io/XPad-for-Mac/">
 <link rel="icon" type="image/png" href="img/icon-256.png">
-<link rel="apple-touch-icon" href="img/icon-256.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="XPad – Use an Xbox 360 controller on Mac">
-<meta property="og:description" content="Free menu bar app for Xbox 360-style (XInput) controllers on macOS. No driver, no kext.">
+<meta property="og:title" content="XPad – Xbox 360 controller in Chrome on Mac">
+<meta property="og:description" content="Free Chrome extension: your Xbox 360-style controller as a real analog gamepad in browser games on Mac.">
 <meta property="og:url" content="https://ogskrrt.github.io/XPad-for-Mac/">
-<meta property="og:image" content="https://ogskrrt.github.io/XPad-for-Mac/img/og.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://ogskrrt.github.io/XPad-for-Mac/img/icon-256.png">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "XPad for Mac",
-  "description": "Free macOS menu bar app that makes Xbox 360-style (XInput) USB controllers and 2.4 GHz receivers work on Mac by turning them into keyboard and mouse input. No driver or kernel extension.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "macOS 13 or later (Apple Silicon and Intel)",
+  "description": "Free Chrome extension that makes Xbox 360-style (XInput) USB controllers and 2.4 GHz receivers work as a standard analog gamepad in browser games on macOS, using WebUSB. No driver or kernel extension.",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "macOS (Google Chrome)",
   "softwareVersion": "1.0.0",
   "license": "https://opensource.org/licenses/MIT",
   "isAccessibleForFree": true,
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "downloadUrl": "https://github.com/OGskrrt/XPad-for-Mac/releases/latest/download/XPad.dmg",
-  "codeRepository": "https://github.com/OGskrrt/XPad-for-Mac",
-  "screenshot": "https://ogskrrt.github.io/XPad-for-Mac/img/panel-en.png",
-  "inLanguage": "en"
+  "downloadUrl": "https://github.com/OGskrrt/XPad-for-Mac/archive/refs/heads/main.zip",
+  "codeRepository": "https://github.com/OGskrrt/XPad-for-Mac"
 }
 </script>
 <script type="application/ld+json">
@@ -42,15 +38,15 @@
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Why doesn't my Xbox 360 controller work on Mac?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Xbox 360 controllers and many third-party pads in X-input mode use Microsoft's XInput USB protocol. macOS has no driver for it, so games, browsers and Steam don't see the controller. XPad reads it directly over USB and turns it into keyboard and mouse input." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Xbox 360 controllers and many third-party pads in X-input mode use Microsoft's XInput USB protocol. macOS has no driver for it, so Chrome and games don't see the controller. XPad reads it with Chrome's WebUSB and shows it to web pages as a standard Xbox 360 gamepad." } },
     { "@type": "Question", "name": "Does XPad work on Apple Silicon Macs?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. XPad is a universal app for Apple Silicon (M1–M4) and Intel Macs running macOS 13 Ventura or later." } },
-    { "@type": "Question", "name": "Do I need to disable SIP or install a kernel extension?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. XPad runs entirely in user space using Apple's IOUSBHost framework. Nothing is installed into the system." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. XPad is a Chrome extension and works on Apple Silicon (M1–M4) and Intel Macs. Nothing is installed into macOS." } },
     { "@type": "Question", "name": "Which controllers work with XPad?",
-      "acceptedAnswer": { "@type": "Answer", "text": "USB controllers and receivers that use the Xbox 360 (XInput) protocol, such as wired Xbox 360 controllers and third-party pads in X-input mode. Tested with the 8BitDo Ultimate C 2.4G. Xbox One/Series, PlayStation and Switch Pro controllers already work on macOS without XPad." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "USB controllers and receivers that use the Xbox 360 (XInput) protocol, such as wired Xbox 360 controllers and third-party pads in X-input mode. Tested with the 8BitDo Ultimate C 2.4G." } },
+    { "@type": "Question", "name": "Does XPad work in Safari?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. XPad needs WebUSB, which is available in Chrome and other Chromium browsers." } },
     { "@type": "Question", "name": "Is XPad free?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. XPad is free and open source under the MIT license, with no ads, accounts or in-app purchases." } }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. XPad is free and open source under the MIT license." } }
   ]
 }
 </script>
@@ -63,56 +59,40 @@
   </header>
 
   <main>
-    <div class="hero">
+    <div class="hero solo">
       <div>
-        <h1>Your Xbox 360‑style controller, working on Mac.</h1>
-        <p class="lead">XPad is a free menu bar app for controllers macOS doesn't recognize: Xbox 360 pads and XInput receivers like the 8BitDo Ultimate C 2.4G. Plug it in and play. No driver, no kernel extension, no security changes.</p>
-        <a class="cta" href="https://github.com/OGskrrt/XPad-for-Mac/releases/latest/download/XPad.dmg">Download XPad <span aria-hidden="true">↓</span></a>
+        <h1>Your Xbox 360‑style controller, in Chrome on Mac.</h1>
+        <p class="lead">XPad is a free Chrome extension for controllers macOS doesn't recognize: Xbox 360 pads and XInput receivers like the 8BitDo Ultimate C 2.4G. Browser games see a real gamepad, with analog sticks and triggers. No driver, no kernel extension, no security changes.</p>
+        <a class="cta" href="https://github.com/OGskrrt/XPad-for-Mac/archive/refs/heads/main.zip">Download XPad <span aria-hidden="true">↓</span></a>
         <ul class="facts">
-          <li>Free &amp; open source</li><li>macOS 13+</li><li>Apple Silicon &amp; Intel</li><li>Under 1 MB</li>
+          <li>Free &amp; open source</li><li>Chrome on macOS</li><li>Apple Silicon &amp; Intel</li><li>Analog sticks</li>
         </ul>
       </div>
-      <div class="shot"><img src="img/panel-en.png" width="300" height="529" alt="XPad panel in the Mac menu bar showing a live view of the controller, the keyboard and mouse switch and the layout picker"></div>
     </div>
 
-    <section id="install" aria-labelledby="install-h">
-      <h2 id="install-h">Three steps</h2>
+    <section aria-labelledby="install-h">
+      <h2 id="install-h">Install in three steps</h2>
       <ol class="steps">
-        <li><h3>Install</h3><p>Open the DMG and drag XPad into Applications.</p></li>
-        <li><h3>Open it once</h3><p>macOS can't verify free apps that aren't paid-signed. Go to System Settings › Privacy &amp; Security and click <b>Open Anyway</b>. Only the first time.</p></li>
-        <li><h3>Plug in and play</h3><p>Connect the controller or its receiver. Turn on <b>Use as keyboard &amp; mouse</b> and allow XPad under Accessibility.</p></li>
+        <li><h3>Download</h3><p>Download the ZIP and double-click it to unzip.</p></li>
+        <li><h3>Load in Chrome</h3><p>Open <code>chrome://extensions</code>, turn on <b>Developer mode</b>, click <b>Load unpacked</b> and pick the <b>extension</b> folder.</p></li>
+        <li><h3>Connect and play</h3><p>In the XPad tab, click <b>Connect controller</b> and pick your controller. Keep that tab open and play.</p></li>
       </ol>
     </section>
 
-    <section id="why" aria-labelledby="why-h">
+    <section aria-labelledby="why-h">
       <h2 id="why-h">Why your controller isn't detected</h2>
-      <p>Macs support standard HID gamepads plus Xbox One/Series, PlayStation and MFi controllers. Xbox 360 controllers, and many third-party pads in “X-input” mode, use a different USB protocol called XInput. macOS has no driver for it: the controller shows up in System Information, yet games, Chrome, Safari and Steam ignore it. The old fix, the 360Controller kernel extension, is no longer maintained and needs lowered security on Apple Silicon.</p>
-      <p>XPad reads the controller directly from user space with Apple's IOUSBHost framework and sends keyboard and mouse input that every app understands.</p>
+      <p>Macs support standard HID gamepads plus Xbox One/Series, PlayStation and MFi controllers. Xbox 360 controllers, and many third-party pads in “X-input” mode, use a different USB protocol called XInput. macOS has no driver for it: the controller shows up in System Information, yet Chrome and games ignore it. The old fix, the 360Controller kernel extension, is no longer maintained and needs lowered security on Apple Silicon.</p>
+      <p>XPad reads the controller with Chrome's WebUSB and presents it to every tab as a standard Xbox 360 gamepad.</p>
     </section>
 
-    <section id="layouts" aria-labelledby="layouts-h">
-      <h2 id="layouts-h">Ready-made layouts</h2>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th scope="col">Layout</th><th scope="col">Sticks</th><th scope="col">Buttons</th></tr></thead>
-          <tbody>
-            <tr><td><b>Game · Arrow keys</b></td><td>Left stick and D-pad = arrows</td><td>RT = ↑ gas, LT = ↓ brake, A = Space, B = Shift, Start = Return, Back = Esc</td></tr>
-            <tr><td><b>Game · WASD + mouse</b></td><td>Left = WASD, right = mouse</td><td>RT = left click, LT = right click, A = Space, Start = Esc, Back = Tab</td></tr>
-            <tr><td><b>Desktop · Mouse</b></td><td>Left = mouse, right = scroll</td><td>A = click, B = right click, LB/RB = back/forward</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section id="faq" class="faq" aria-labelledby="faq-h">
+    <section class="faq" aria-labelledby="faq-h">
       <h2 id="faq-h">Questions</h2>
-      <details><summary>Which controllers work?</summary><p>USB controllers and receivers that use the Xbox 360 (XInput) protocol: wired Xbox 360 controllers and third-party pads in X-input mode. Tested with the 8BitDo Ultimate C 2.4G. Xbox One/Series, PlayStation and Switch Pro controllers already work on macOS without XPad.</p></details>
-      <details><summary>Does it work on Apple Silicon?</summary><p>Yes, on M1, M2, M3 and M4 Macs as well as Intel Macs, with macOS 13 Ventura or later.</p></details>
-      <details><summary>Do I need to disable SIP or install a driver?</summary><p>No. Nothing is installed into the system. Quit XPad and your Mac is exactly as before.</p></details>
-      <details><summary>Why does it ask for Accessibility permission?</summary><p>macOS only lets an app press keys and move the pointer for you with that permission. XPad uses it for nothing else and has no network access or analytics.</p></details>
-      <details><summary>Will Steam see it as a gamepad?</summary><p>Not yet. XPad sends keyboard and mouse input, so games see a keyboard. A true virtual gamepad needs a special entitlement from Apple.</p></details>
-      <details><summary>It says the controller is in use by another app.</summary><p>Only one app can use a USB controller at a time. Close the other app or browser tab and XPad connects by itself. Use Pause to hand the controller to another app.</p></details>
-      <details><summary>Is it really free?</summary><p>Yes. Free and open source (MIT). No ads, no account, no in-app purchases.</p></details>
+      <details><summary>Which controllers work?</summary><p>USB controllers and receivers that use the Xbox 360 (XInput) protocol: wired Xbox 360 controllers and third-party pads in X-input mode. Tested with the 8BitDo Ultimate C 2.4G. Xbox One/Series, PlayStation and Switch Pro controllers already work in Chrome on macOS.</p></details>
+      <details><summary>Which games?</summary><p>Any web game or cloud gaming site that uses the standard Gamepad API. Tested with nfsu2.xyz and hardwaretester.com.</p></details>
+      <details><summary>Safari or Firefox?</summary><p>No, XPad needs WebUSB. Chrome and other Chromium browsers (Edge, Brave, Arc) work.</p></details>
+      <details><summary>Why must the XPad tab stay open?</summary><p>Some sites block USB access in their own pages, so XPad reads the controller in its own tab and passes the input to your game tabs.</p></details>
+      <details><summary>It says the controller is in use.</summary><p>Only one program can use a USB controller at a time. Close the other app or the second XPad tab.</p></details>
+      <details><summary>Privacy?</summary><p>XPad has no network access and collects nothing.</p></details>
     </section>
   </main>
 </div>

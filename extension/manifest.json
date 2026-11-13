@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "XPad – Xbox 360 controller for Chrome on Mac",
+  "short_name": "XPad",
+  "version": "1.0.0",
+  "description": "Use Xbox 360-style (XInput) controllers that macOS doesn't recognize, like the 8BitDo Ultimate C 2.4G, as a real gamepad in Chrome games.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Open XPad",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["page.js"],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["relay.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}

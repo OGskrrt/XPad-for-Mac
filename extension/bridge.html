@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XPad</title>
+  <link rel="icon" href="icons/icon-32.png">
+  <link rel="stylesheet" href="bridge.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1><img src="icons/icon-48.png" alt="" width="32" height="32"> XPad</h1>
+      <p class="sub">Keep this tab open while you play. Your controller works in every Chrome tab as an Xbox 360 gamepad.</p>
+    </header>
+
+    <section class="card">
+      <div class="row">
+        <span id="dot" class="dot" aria-hidden="true"></span>
+        <strong id="status">Starting…</strong>
+      </div>
+      <button id="connect" type="button">Connect controller</button>
+      <p class="hint">The first time, pick your controller from the list (for example <em>Ultimate C 2.4G Wireless Controller</em>). After that XPad connects by itself.</p>
+    </section>
+
+    <section class="card">
+      <h2>Live view</h2>
+      <div class="sticks">
+        <div class="stick" aria-label="Left stick"><span id="ls" class="knob"></span></div>
+        <div class="trig"><span>LT</span><meter id="lt" min="0" max="1" value="0"></meter></div>
+        <div class="trig"><span>RT</span><meter id="rt" min="0" max="1" value="0"></meter></div>
+        <div class="stick" aria-label="Right stick"><span id="rs" class="knob"></span></div>
+      </div>
+      <ul id="buttons" class="buttons"></ul>
+      <p class="meta">Game tabs using it: <strong id="tabs">0</strong> · Reports: <strong id="count">0</strong></p>
+    </section>
+
+    <section class="card">
+      <h2>Log</h2>
+      <pre id="log"></pre>
+    </section>
+  </main>
+  <script src="xinput-core.js"></script>
+  <script src="bridge.js"></script>
+</body>
+</html>

@@ -3,21 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>XPad for Mac – Xbox 360 kumandasını Mac'te kullan (ücretsiz)</title>
-<meta name="description" content="XPad, Mac'in tanımadığı Xbox 360 tipi (XInput) kumandaları ve alıcıları (ör. 8BitDo Ultimate C 2.4G) çalıştıran ücretsiz bir menü çubuğu uygulaması. Sürücü yok, kext yok, SIP ayarı yok. Apple Silicon ve Intel.">
+<title>XPad for Mac – Xbox 360 kumandasını Mac'te Chrome'da kullan (ücretsiz)</title>
+<meta name="description" content="XPad, Mac'in tanımadığı Xbox 360 tipi (XInput) kumandaları ve alıcıları (ör. 8BitDo Ultimate C 2.4G) tarayıcı oyunlarında gerçek, analog bir kumanda olarak çalıştıran ücretsiz bir Chrome eklentisi. Sürücü yok, kext yok.">
 <link rel="canonical" href="https://ogskrrt.github.io/XPad-for-Mac/tr/">
 <link rel="alternate" hreflang="en" href="https://ogskrrt.github.io/XPad-for-Mac/">
 <link rel="alternate" hreflang="tr" href="https://ogskrrt.github.io/XPad-for-Mac/tr/">
 <link rel="alternate" hreflang="x-default" href="https://ogskrrt.github.io/XPad-for-Mac/">
 <link rel="icon" type="image/png" href="../img/icon-256.png">
-<link rel="apple-touch-icon" href="../img/icon-256.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="XPad – Xbox 360 kumandasını Mac'te kullan">
-<meta property="og:description" content="Mac'te Xbox 360 tipi (XInput) kumandalar için ücretsiz menü çubuğu uygulaması. Sürücü yok, kext yok.">
+<meta property="og:title" content="XPad – Xbox 360 kumandası Mac'te Chrome'da">
+<meta property="og:description" content="Ücretsiz Chrome eklentisi: Xbox 360 tipi kumandan, Mac'te tarayıcı oyunlarında gerçek analog kumanda.">
 <meta property="og:url" content="https://ogskrrt.github.io/XPad-for-Mac/tr/">
-<meta property="og:image" content="https://ogskrrt.github.io/XPad-for-Mac/img/og.png">
+<meta property="og:image" content="https://ogskrrt.github.io/XPad-for-Mac/img/icon-256.png">
 <meta property="og:locale" content="tr_TR">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../style.css">
 <script type="application/ld+json">
 {
@@ -26,13 +24,13 @@
   "inLanguage": "tr",
   "mainEntity": [
     { "@type": "Question", "name": "Xbox 360 kumandam Mac'te neden çalışmıyor?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Xbox 360 kumandaları ve X-input modundaki birçok üçüncü parti kumanda Microsoft'un XInput USB protokolünü kullanır. macOS'ta bunun sürücüsü yoktur; oyunlar, tarayıcılar ve Steam kumandayı görmez. XPad kumandayı doğrudan USB'den okur ve klavye ile fare girişine çevirir." } },
-    { "@type": "Question", "name": "XPad M çipli (Apple Silicon) Mac'te çalışır mı?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Evet. XPad, macOS 13 Ventura ve sonrasında Apple Silicon (M1–M4) ve Intel Mac'lerde çalışan evrensel bir uygulamadır." } },
-    { "@type": "Question", "name": "SIP'i kapatmam ya da sürücü kurmam gerekir mi?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Hayır. XPad tamamen kullanıcı alanında, Apple'ın IOUSBHost çerçevesiyle çalışır. Sisteme hiçbir şey kurulmaz." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Xbox 360 kumandaları ve X-input modundaki birçok üçüncü parti kumanda Microsoft'un XInput USB protokolünü kullanır. macOS'ta bunun sürücüsü yoktur; Chrome ve oyunlar kumandayı görmez. XPad kumandayı Chrome'un WebUSB özelliğiyle okur ve sayfalara standart bir Xbox 360 kumandası olarak gösterir." } },
+    { "@type": "Question", "name": "XPad M çipli Mac'te çalışır mı?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Evet. XPad bir Chrome eklentisidir; M1–M4 ve Intel Mac'lerde çalışır. macOS'a hiçbir şey kurulmaz." } },
+    { "@type": "Question", "name": "XPad Safari'de çalışır mı?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hayır. XPad WebUSB gerektirir; Chrome ve diğer Chromium tarayıcılarda çalışır." } },
     { "@type": "Question", "name": "XPad ücretsiz mi?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Evet. XPad ücretsiz ve MIT lisanslı açık kaynaktır; reklam, hesap ya da uygulama içi satın alma yoktur." } }
+      "acceptedAnswer": { "@type": "Answer", "text": "Evet. XPad ücretsiz ve MIT lisanslı açık kaynaktır." } }
   ]
 }
 </script>
@@ -45,56 +43,39 @@
   </header>
 
   <main>
-    <div class="hero">
+    <div class="hero solo">
       <div>
-        <h1>Xbox 360 tipi kumandan, artık Mac'te çalışıyor.</h1>
-        <p class="lead">XPad, macOS'un tanımadığı kumandalar için ücretsiz bir menü çubuğu uygulaması: Xbox 360 kumandaları ve 8BitDo Ultimate C 2.4G gibi XInput alıcıları. Tak ve oyna. Sürücü yok, çekirdek eklentisi yok, güvenlik ayarı değiştirmek yok.</p>
-        <a class="cta" href="https://github.com/OGskrrt/XPad-for-Mac/releases/latest/download/XPad.dmg">XPad'i indir <span aria-hidden="true">↓</span></a>
+        <h1>Xbox 360 tipi kumandan, Mac'te Chrome'da.</h1>
+        <p class="lead">XPad, macOS'un tanımadığı kumandalar için ücretsiz bir Chrome eklentisi: Xbox 360 kumandaları ve 8BitDo Ultimate C 2.4G gibi XInput alıcıları. Tarayıcı oyunları analog çubuk ve tetikleriyle gerçek bir kumanda görür. Sürücü yok, çekirdek eklentisi yok, güvenlik ayarı değiştirmek yok.</p>
+        <a class="cta" href="https://github.com/OGskrrt/XPad-for-Mac/archive/refs/heads/main.zip">XPad'i indir <span aria-hidden="true">↓</span></a>
         <ul class="facts">
-          <li>Ücretsiz ve açık kaynak</li><li>macOS 13+</li><li>Apple Silicon ve Intel</li><li>1 MB'tan küçük</li><li>Uygulama İngilizce</li>
+          <li>Ücretsiz ve açık kaynak</li><li>Mac'te Chrome</li><li>Apple Silicon ve Intel</li><li>Analog çubuklar</li><li>Arayüz İngilizce</li>
         </ul>
       </div>
-      <div class="shot"><img src="../img/panel-en.png" width="300" height="529" alt="Mac menü çubuğundaki XPad paneli (uygulama İngilizce): canlı kumanda görünümü, klavye ve fare anahtarı ve düzen seçimi"></div>
     </div>
 
     <section aria-labelledby="install-h">
-      <h2 id="install-h">Üç adım</h2>
+      <h2 id="install-h">Üç adımda kurulum</h2>
       <ol class="steps">
-        <li><h3>Kur</h3><p>DMG'yi aç, XPad'i Uygulamalar klasörüne sürükle.</p></li>
-        <li><h3>Bir kez aç</h3><p>macOS, Apple'a ücretli imzalatılmamış ücretsiz uygulamaları doğrulayamaz. Sistem Ayarları › Gizlilik ve Güvenlik'e gir, <b>Yine de Aç</b>'a tıkla. Sadece ilk seferde.</p></li>
-        <li><h3>Tak ve oyna</h3><p>Kumandayı ya da alıcısını tak. <b>Use as keyboard &amp; mouse</b> anahtarını aç, Erişilebilirlik'ten XPad'e izin ver.</p></li>
+        <li><h3>İndir</h3><p>ZIP'i indir, çift tıklayıp aç.</p></li>
+        <li><h3>Chrome'a yükle</h3><p><code>chrome://extensions</code> adresine git, <b>Geliştirici modu</b>'nu aç, <b>Paketlenmemiş öğe yükle</b>'ye bas ve <b>extension</b> klasörünü seç.</p></li>
+        <li><h3>Bağla ve oyna</h3><p>XPad sekmesinde <b>Connect controller</b>'a bas, kumandanı seç. O sekme açık kalsın, oyna.</p></li>
       </ol>
     </section>
 
     <section aria-labelledby="why-h">
       <h2 id="why-h">Kumandan neden tanınmıyor?</h2>
-      <p>Mac'ler standart HID kumandaları ve Xbox One/Series, PlayStation ve MFi kumandaları destekler. Xbox 360 kumandaları ve "X-input" modundaki birçok üçüncü parti kumanda ise XInput adlı farklı bir USB protokolü kullanır. macOS'ta bunun sürücüsü yok: kumanda Sistem Bilgisi'nde görünür ama oyunlar, Chrome, Safari ve Steam onu görmez. Eski çözüm olan 360Controller çekirdek eklentisi artık geliştirilmiyor ve M çipli Mac'lerde güvenliği düşürmeyi gerektiriyor.</p>
-      <p>XPad kumandayı Apple'ın IOUSBHost çerçevesiyle doğrudan okur ve her uygulamanın anladığı klavye ve fare girişini gönderir.</p>
-    </section>
-
-    <section aria-labelledby="layouts-h">
-      <h2 id="layouts-h">Hazır düzenler</h2>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th scope="col">Düzen</th><th scope="col">Çubuklar</th><th scope="col">Tuşlar</th></tr></thead>
-          <tbody>
-            <tr><td><b>Oyun · Ok tuşları</b></td><td>Sol çubuk ve yön tuşları = oklar</td><td>RT = ↑ gaz, LT = ↓ fren, A = Boşluk, B = Shift, Start = Enter, Back = Esc</td></tr>
-            <tr><td><b>Oyun · WASD + fare</b></td><td>Sol = WASD, sağ = fare</td><td>RT = sol tık, LT = sağ tık, A = Boşluk, Start = Esc, Back = Tab</td></tr>
-            <tr><td><b>Masaüstü · Fare</b></td><td>Sol = fare, sağ = kaydırma</td><td>A = tık, B = sağ tık, LB/RB = geri/ileri</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Mac'ler standart HID kumandaları ve Xbox One/Series, PlayStation ve MFi kumandaları destekler. Xbox 360 kumandaları ve "X-input" modundaki birçok üçüncü parti kumanda ise XInput adlı farklı bir USB protokolü kullanır. macOS'ta bunun sürücüsü yok: kumanda Sistem Bilgisi'nde görünür ama Chrome ve oyunlar onu görmez.</p>
+      <p>XPad kumandayı Chrome'un WebUSB özelliğiyle okur ve her sekmeye standart bir Xbox 360 kumandası olarak gösterir.</p>
     </section>
 
     <section class="faq" aria-labelledby="faq-h">
       <h2 id="faq-h">Sorular</h2>
-      <details><summary>Hangi kumandalar çalışır?</summary><p>Xbox 360 (XInput) protokolünü kullanan USB kumandalar ve alıcılar: kablolu Xbox 360 kumandaları ve X-input modundaki üçüncü parti kumandalar. 8BitDo Ultimate C 2.4G ile test edildi. Xbox One/Series, PlayStation ve Switch Pro kumandaları macOS'ta zaten XPad'siz çalışıyor.</p></details>
-      <details><summary>M çipli Mac'te çalışır mı?</summary><p>Evet. M1, M2, M3, M4 ve Intel Mac'lerde, macOS 13 Ventura ve sonrasında çalışır.</p></details>
-      <details><summary>SIP'i kapatmam ya da sürücü kurmam gerekir mi?</summary><p>Hayır. Sisteme hiçbir şey kurulmaz. XPad'den çıkınca Mac'in eskisi gibi kalır.</p></details>
-      <details><summary>Neden Erişilebilirlik izni istiyor?</summary><p>macOS, bir uygulamanın senin yerine tuşa basmasına ve imleci oynatmasına ancak bu izinle olanak tanıyor. XPad bu izni başka bir şey için kullanmaz; internete bağlanmaz, veri toplamaz.</p></details>
-      <details><summary>Steam onu gamepad olarak görür mü?</summary><p>Şimdilik hayır. XPad klavye ve fare girişi gönderir, oyunlar klavye görür. Gerçek sanal gamepad için Apple'dan özel izin gerekiyor.</p></details>
-      <details><summary>"Kumanda başka bir uygulama tarafından kullanılıyor" diyor.</summary><p>Bir USB kumandayı aynı anda tek bir uygulama kullanabilir. Diğer uygulamayı ya da tarayıcı sekmesini kapat, XPad kendiliğinden bağlanır. Kumandayı başka bir uygulamaya bırakmak için <b>Pause</b>'a bas.</p></details>
-      <details><summary>Gerçekten ücretsiz mi?</summary><p>Evet. Ücretsiz ve açık kaynak (MIT). Reklam yok, hesap yok, uygulama içi satın alma yok.</p></details>
+      <details><summary>Hangi kumandalar çalışır?</summary><p>Xbox 360 (XInput) protokolünü kullanan USB kumandalar ve alıcılar. 8BitDo Ultimate C 2.4G ile test edildi. Xbox One/Series, PlayStation ve Switch Pro kumandaları Mac'te Chrome'da zaten çalışıyor.</p></details>
+      <details><summary>Hangi oyunlar?</summary><p>Standart Gamepad API'yi kullanan her tarayıcı oyunu ve bulut oyun sitesi. nfsu2.xyz ve hardwaretester.com ile test edildi.</p></details>
+      <details><summary>Safari ya da Firefox?</summary><p>Hayır, XPad WebUSB gerektirir. Chrome ve diğer Chromium tarayıcılar (Edge, Brave, Arc) çalışır.</p></details>
+      <details><summary>XPad sekmesi neden açık kalmalı?</summary><p>Bazı siteler kendi sayfalarında USB erişimini kapatıyor; XPad kumandayı kendi sekmesinde okuyup oyun sekmelerine aktarıyor.</p></details>
+      <details><summary>Gizlilik?</summary><p>XPad internete bağlanmaz, veri toplamaz.</p></details>
     </section>
   </main>
 </div>
