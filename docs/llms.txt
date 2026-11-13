@@ -1,0 +1,15 @@
+# XPad for Mac
+
+> XPad is a free, open-source (MIT) macOS menu bar app that makes Xbox 360-style USB controllers work on a Mac. These controllers and their 2.4 GHz USB receivers (for example the 8BitDo Ultimate C 2.4G in X-input mode) use Microsoft's XInput protocol, which macOS has no driver for. XPad reads the controller directly over USB from user space (Apple IOUSBHost framework) and turns it into keyboard and mouse input. No driver, no kernel extension, no SIP changes. macOS 13+, Apple Silicon and Intel.
+
+- Download: https://github.com/OGskrrt/XPad-for-Mac/releases/latest/download/XPad.dmg
+- Source: https://github.com/OGskrrt/XPad-for-Mac
+- Turkish page: https://ogskrrt.github.io/XPad-for-Mac/tr/
+
+## Key facts
+
+- Works with: wired Xbox 360 controllers and third-party pads/receivers in XInput mode. Tested with 8BitDo Ultimate C 2.4G.
+- Not needed for: Xbox One/Series, PlayStation and Switch Pro controllers (macOS supports them natively).
+- Output: keyboard and mouse events (needs macOS Accessibility permission). Layouts: arrow keys (racing/arcade), WASD + mouse, desktop mouse.
+- Limits: games see a keyboard, not a gamepad; first launch needs System Settings › Privacy & Security › Open Anyway because the app is not paid-signed.
+- Privacy: no network access, no analytics, no account.

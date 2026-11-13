@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ogskrrt.github.io/XPad-for-Mac/sitemap.xml

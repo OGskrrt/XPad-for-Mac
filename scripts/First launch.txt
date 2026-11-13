@@ -1,0 +1,13 @@
+XPad — first launch
+======================
+
+1. Drag XPad into Applications and open it.
+2. macOS says it can't verify the app (XPad is free and not paid-signed by Apple).
+   Click "Done", then go to System Settings › Privacy & Security, scroll down
+   and click "Open Anyway". You only do this once.
+3. A controller icon appears in the menu bar. Plug in your controller.
+4. To use it as keyboard & mouse, allow XPad in
+   System Settings › Privacy & Security › Accessibility.
+
+Help: https://ogskrrt.github.io/XPad-for-Mac/
+
