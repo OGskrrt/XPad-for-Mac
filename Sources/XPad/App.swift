@@ -100,30 +100,29 @@ final class AppModel: ObservableObject {
     }
 }
 
-/// `--preview` also shows the panel in a normal window (for screenshots).
-final class PreviewDelegate: NSObject, NSApplicationDelegate {
+let showWindowNote = Notification.Name("io.github.ogskrrt.xpad.show")
+
+/// Shows the panel in a normal window at launch and whenever the app is opened again,
+/// so XPad is never "invisible" when the menu bar is full or hidden behind the notch.
+/// `--preview --demo --light|--dark --snapshot out.png` renders a screenshot and quits.
+final class AppDelegate: NSObject, NSApplicationDelegate {
     static var model: AppModel?
     var window: NSWindow?
+
     func applicationDidFinishLaunching(_ n: Notification) {
-        guard CommandLine.arguments.contains("--preview"), let model = Self.model else { return }
-        let w = NSWindow(contentRect: .zero, styleMask: [.titled, .closable], backing: .buffered, defer: false)
-        w.title = "XPad"
-        w.contentView = NSHostingView(rootView: PanelView().environmentObject(model)
-            .background(Color(nsColor: .windowBackgroundColor)))
-        if CommandLine.arguments.contains("--light") { w.appearance = NSAppearance(named: .aqua) }
-        if CommandLine.arguments.contains("--dark") { w.appearance = NSAppearance(named: .darkAqua) }
-        w.center()
-        w.makeKeyAndOrderFront(nil)
-        window = w
+        DistributedNotificationCenter.default().addObserver(forName: showWindowNote, object: nil, queue: .main) { [weak self] _ in
+            self?.showWindow()
+        }
         let args = CommandLine.arguments
-        if args.contains("--demo") {
+        if args.contains("--demo"), let model = Self.model {
             model.deviceName = "Ultimate C 2.4G Wireless Controller"
             var st = PadState()
             st.buttons = (1 << UInt32(Btn.a.rawValue)) | (1 << UInt32(Btn.rb.rawValue))
             st.rt = 0.7; st.lx = -0.6; st.ly = 0.3
             model.state = st
         }
-        if let i = args.firstIndex(of: "--snapshot"), args.count > i + 1 {
+        if !args.contains("--background") { showWindow() }
+        if let i = args.firstIndex(of: "--snapshot"), args.count > i + 1, let w = window {
             let path = args[i + 1]
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 guard let v = w.contentView,
@@ -139,15 +138,45 @@ final class PreviewDelegate: NSObject, NSApplicationDelegate {
             }
         }
     }
+
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        showWindow()
+        return true
+    }
+
+    func showWindow() {
+        guard let model = Self.model else { return }
+        if window == nil {
+            let w = NSWindow(contentRect: .zero, styleMask: [.titled, .closable, .miniaturizable], backing: .buffered, defer: false)
+            w.title = "XPad"
+            w.isReleasedWhenClosed = false
+            w.contentView = NSHostingView(rootView: PanelView().environmentObject(model)
+                .background(Color(nsColor: .windowBackgroundColor)))
+            if CommandLine.arguments.contains("--light") { w.appearance = NSAppearance(named: .aqua) }
+            if CommandLine.arguments.contains("--dark") { w.appearance = NSAppearance(named: .darkAqua) }
+            w.center()
+            window = w
+        }
+        // Center on the screen the pointer is on.
+        if let w = window, !w.isVisible {
+            let mouse = NSEvent.mouseLocation
+            if let screen = NSScreen.screens.first(where: { NSMouseInRect(mouse, $0.frame, false) }) ?? NSScreen.main {
+                let f = screen.visibleFrame, size = w.frame.size
+                w.setFrameOrigin(NSPoint(x: f.midX - size.width / 2, y: f.midY - size.height / 2))
+            }
+        }
+        NSApp.activate(ignoringOtherApps: true)
+        window?.makeKeyAndOrderFront(nil)
+    }
 }
 
 struct XPadApp: App {
-    @NSApplicationDelegateAdaptor(PreviewDelegate.self) private var delegate
+    @NSApplicationDelegateAdaptor(AppDelegate.self) private var delegate
     @StateObject private var model: AppModel
 
     init() {
         let m = AppModel()
-        PreviewDelegate.model = m
+        AppDelegate.model = m
         _model = StateObject(wrappedValue: m)
     }
 

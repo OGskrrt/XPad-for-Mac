@@ -26,4 +26,11 @@ if let i = args.firstIndex(of: "--selftest") {
     let secs = args.count > i + 1 ? Double(args[i + 1]) ?? 20 : 20
     SelfTest.run(seconds: secs)
 }
+// One copy only: if XPad is already running, bring its window forward and quit.
+import AppKit
+if let id = Bundle.main.bundleIdentifier,
+   NSRunningApplication.runningApplications(withBundleIdentifier: id).contains(where: { $0 != NSRunningApplication.current }) {
+    DistributedNotificationCenter.default().postNotificationName(showWindowNote, object: nil, userInfo: nil, deliverImmediately: true)
+    exit(0)
+}
 XPadApp.main()
